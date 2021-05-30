@@ -46,7 +46,7 @@ const managerQuestions = [
 const teamMemberRole = {
     type: 'input',
     name: 'role',
-    message: 'What is the role of your team member? (Engineer or Intern)',
+    message: 'What is the role of your team member?',
     choices: ['Engineer', 'Intern'],
 };
 //=============================================================================//
@@ -118,3 +118,7 @@ const internQuestions = [
         message: 'What school is the Intern attending?',
     },
 ];
+//=============================================================================//
+
+//=============================================================================//
+
