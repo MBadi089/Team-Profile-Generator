@@ -5,7 +5,6 @@ const Employee = require("./lib/Employee");
 const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
 const Manager = require("./lib/Manager");
-const questions;
 
 const teamMembersArrary = [];
 
@@ -121,4 +120,17 @@ const internQuestions = [
 //=============================================================================//
 
 //=============================================================================//
+//Need to push the user input from manager into html
+
+function managerInfo() {
+    inquirer.prompt(managerQuestions).then((managerBuild) => {
+        let manager = new Manager(managerBuild.name, managerBuild.id, managerBuild.email, managerBuild.office);
+        teamMembersArrary.push(manager),
+
+        teamSizeInfo();
+    });
+};
+
+
+
 
