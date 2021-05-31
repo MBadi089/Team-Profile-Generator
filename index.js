@@ -6,6 +6,9 @@ const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
 const Manager = require("./lib/Manager");
 
+const htmlPage = require("./dist/index");
+const styleSheet = require("./dist/assets/style");
+
 const teamMembersArrary = [];
 
 //=============================================================================//
@@ -122,15 +125,27 @@ const internQuestions = [
 //=============================================================================//
 //Need to push the user input from manager into html
 
-function managerInfo() {
+function managerDisplay() {
     inquirer.prompt(managerQuestions).then((managerBuild) => {
         let manager = new Manager(managerBuild.name, managerBuild.id, managerBuild.email, managerBuild.office);
-        teamMembersArrary.push(manager),
-
-        teamSizeInfo();
+        teamMembersArrary.push(manager);
     });
 };
 
+function engineerDisplay() {
+    inquirer.prompt(engineerQuestions).then((engineerBuild) => {
+        let engineer = new Engineer(engineerBuild.name, engineerBuild.id, engineerBuild.email, engineerBuild.github);
+        teamMembersArrary.push(engineer);
+    });
+};
+
+function internDisplay() {
+    inquirer.prompt(internQuestions).then((internBuild) => {
+        let intern = new Intern(internBuild.name, internBuild.id, internBuild.email, internBuild.school);
+        teamMembersArrary.push(intern);
+    });
+};
+//=============================================================================//
 
 
 
