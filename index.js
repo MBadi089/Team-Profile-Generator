@@ -1,5 +1,7 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
+const http = require('http');
+const port = 3001;
 
 const Employee = require("./lib/Employee");
 const Engineer = require("./lib/Engineer");
@@ -13,6 +15,7 @@ const teamMembersArrary = [];
 
 //=============================================================================//
 //Create a menu to ask the user what they want to do
+inquirer
 const menuOptions = {
     type: 'list',
     name: 'options',
@@ -63,7 +66,7 @@ const managerQuestions = [
 
 //=============================================================================//
 //Ask the user to add members to their team with roles
-
+inquirer
 const teamMemberRole = [
     {
         type: 'input',
@@ -76,7 +79,7 @@ const teamMemberRole = [
 
 //=============================================================================//
 //Ask the user questions for the Engineering role
-
+inquirer
 const engineerQuestions = [
     //ask for the engineer's name
     {
@@ -111,7 +114,7 @@ const engineerQuestions = [
 
 //=============================================================================//
 //Ask the user questions for the Intern role
-
+inquirer
 const internQuestions = [
   //ask for the intern's name
     {
@@ -168,5 +171,27 @@ function internDisplay() {
 };
 //=============================================================================//
 
+//=============================================================================//
+//function to create the HTML page
 
+const server = http.createServer(function(req, res) {
+    res.writeHead(200, { 'Content-Type': 'text/html' });
+    fs.readFile('index.html', function(error, data) {
+        if (error) {
+            res.writeHead(404);
+            res.write('Error: File not found')
+        } else {
+            res.write(answers)
+        }
+        res.end();
+    })
+});
+
+server.listen(port, function(error) {
+    if (error) {
+        console.log('Something went wrong!', error)
+    } else {
+        console.log('Server is listening on port ' + port)
+    }
+});
 
