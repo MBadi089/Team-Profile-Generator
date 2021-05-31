@@ -6,8 +6,8 @@ const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
 const Manager = require("./lib/Manager");
 
-//const htmlPage = require("./dist/index.html");
-//const styleSheet = require("./dist/assets/style.css");
+const htmlPage = require("./dist/index.html");
+const styleSheet = require("./dist/assets/style.css");
 
 const teamMembersArrary = [];
 
@@ -24,7 +24,7 @@ const menuOptions = {
         }
         else {
             console.log('Thanks for visiting the app. See you next time!');
-            return 0;
+            return;
         }
     }
 };
@@ -32,7 +32,7 @@ const menuOptions = {
 
 //=============================================================================//
 //Ask the user to build their team starting with the manager.
-
+inquirer
 const managerQuestions = [
     //ask for the manager's name
     {
@@ -64,12 +64,14 @@ const managerQuestions = [
 //=============================================================================//
 //Ask the user to add members to their team with roles
 
-const teamMemberRole = {
-    type: 'input',
-    name: 'role',
-    message: 'What is the role of your team member?',
-    choices: ['Engineer', 'Intern'],
-};
+const teamMemberRole = [
+    {
+        type: 'input',
+        name: 'role',
+        message: 'What is the role of your team member?',
+        choices: ['Engineer', 'Intern'],
+    },
+];
 //=============================================================================//
 
 //=============================================================================//
