@@ -123,7 +123,7 @@ const internQuestions = [
 //=============================================================================//
 
 //=============================================================================//
-//Need to push the user input from manager into html
+//Need to push the user input from manager, engineer, and intern into html page
 
 function managerDisplay() {
     inquirer.prompt(managerQuestions).then((managerBuild) => {
