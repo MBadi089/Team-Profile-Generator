@@ -1,3 +1,4 @@
+console.log("index.js is running.")
 const inquirer = require('inquirer');
 const fs = require('fs');
 
@@ -6,10 +7,29 @@ const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
 const Manager = require("./lib/Manager");
 
-const htmlPage = require("./dist/index");
-const styleSheet = require("./dist/assets/style");
+//const htmlPage = require("./dist/index.html");
+//const styleSheet = require("./dist/assets/style.css");
 
 const teamMembersArrary = [];
+
+//=============================================================================//
+//Create a menu to ask the user what they want to do
+const menuOptions = {
+    type: 'list',
+    name: 'options',
+    message: 'This program is going to help you create a team with a manager(s), an engineer(s), and an intern(s)',
+    choice: ['Yes, Lets Build A Team', 'No, Close Program'],
+    validate: options => {
+        if (options === 'Yes, Lets Build A Team') {
+            return true;
+        }
+        else {
+            console.log('Thanks for visiting the app. See you next time!');
+            return 0;
+        }
+    }
+};
+
 
 //=============================================================================//
 //Ask the user to build their team starting with the manager.
