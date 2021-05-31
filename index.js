@@ -1,4 +1,3 @@
-console.log("index.js is running.")
 const inquirer = require('inquirer');
 const fs = require('fs');
 
